@@ -16,7 +16,6 @@ const initialState = {
     }
 };
 
-
 export default function authentication(state = initialState, action) {
     switch(action.type) {
         /* LOGIN */

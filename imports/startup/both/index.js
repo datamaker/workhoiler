@@ -5,6 +5,7 @@ import configureStore from './store';
 // React Package
 import React from 'react';
 import ReactHelmet from 'react-helmet';
+import ReactCookie from 'react-cookie';
 
 // Redux Package
 import { Provider } from 'react-redux';
@@ -48,6 +49,7 @@ const preRender = (req, res) => {
             }
         }
     };
+    return ReactCookie.plugToRequest( req, res );
 };
 
 // Use history hook to get a reference to the history object
