@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TimeAgo from 'react-timeago';
 import { Link } from 'react-router';
 
@@ -158,12 +159,12 @@ class Memo extends React.Component {
 }
 
 Memo.propTypes = {
-    data: React.PropTypes.object,
-    ownership: React.PropTypes.bool,
-    onEdit: React.PropTypes.func,
-    onRemove: React.PropTypes.func,
-    onStar: React.PropTypes.func,
-    currentUser: React.PropTypes.string
+    data: PropTypes.object,
+    ownership: PropTypes.bool,
+    onEdit: PropTypes.func,
+    onRemove: PropTypes.func,
+    onStar: PropTypes.func,
+    currentUser: PropTypes.string
 };
 
 Memo.defaultProps = {

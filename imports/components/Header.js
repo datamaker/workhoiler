@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { Search } from '../components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -66,9 +67,9 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-    isLoggedIn: React.PropTypes.bool,
-    onLogout: React.PropTypes.func,
-    usernames: React.PropTypes.array
+    isLoggedIn: PropTypes.bool,
+    onLogout: PropTypes.func,
+    usernames: PropTypes.array
 };
 
 Header.defaultProps = {

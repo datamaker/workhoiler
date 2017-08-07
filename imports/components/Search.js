@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { browserHistory, Link } from 'react-router';
 
 class Search extends React.Component {
@@ -104,9 +105,9 @@ class Search extends React.Component {
 }
 
 Search.propTypes = {
-    onClose: React.PropTypes.func,
-    onSearch: React.PropTypes.func,
-    usernames: React.PropTypes.array
+    onClose: PropTypes.func,
+    onSearch: PropTypes.func,
+    usernames: PropTypes.array
 };
 
 Search.defaultProps = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Memo } from '../components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -41,11 +42,11 @@ class MemoList extends React.Component {
 }
 
 MemoList.propTypes = {
-    data: React.PropTypes.array,
-    currentUser: React.PropTypes.string,
-    onEdit: React.PropTypes.func,
-    onRemove: React.PropTypes.func,
-    onStar: React.PropTypes.func
+    data: PropTypes.array,
+    currentUser: PropTypes.string,
+    onEdit: PropTypes.func,
+    onRemove: PropTypes.func,
+    onStar: PropTypes.func
 };
 
 MemoList.defaultProps = {

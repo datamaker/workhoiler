@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Write, MemoList } from '../components';
 import {
@@ -322,7 +323,7 @@ class Home extends React.Component {
 }
 
 Home.PropTypes = {
-    username: React.PropTypes.string
+    username: PropTypes.string
 };
 
 Home.defaultProps = {
