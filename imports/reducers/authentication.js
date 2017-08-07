@@ -17,11 +17,7 @@ const initialState = {
 };
 
 
-export default function authentication(state, action) {
-    if(typeof state === "undefined") {
-        state = initialState;
-    }
-
+export default function authentication(state = initialState, action) {
     switch(action.type) {
         /* LOGIN */
         case types.AUTH_LOGIN:
@@ -40,7 +36,7 @@ export default function authentication(state, action) {
                     currentUser: { $set: action.username }
                 }
             });
-        case types.AUTH_FAILURE:
+        case types.AUTH_LOGIN_FAILURE:
             return update(state, {
                 login: {
                     status: { $set: 'FAILURE' }

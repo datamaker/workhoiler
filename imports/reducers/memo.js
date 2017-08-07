@@ -25,11 +25,7 @@ const initialState = {
     }
 };
 
-export default function memo(state, action) {
-    if(typeof state === "undefined") {
-        state = initialState;
-    }
-
+export default function memo(state = initialState, action) {
     switch(action.type) {
         /* MEMO_POST */
         case types.MEMO_POST:
@@ -85,6 +81,12 @@ export default function memo(state, action) {
                     status: { $set: 'SUCCESS' },
                     data: { $push: action.data },
                     isLast: { $set: action.data.length < 6 }
+                }
+            });
+        case types.MEMO_LIST_FAILURE:
+            return update(state, {
+                list: {
+                    status: { $set: 'FAILURE' }
                 }
             });
 

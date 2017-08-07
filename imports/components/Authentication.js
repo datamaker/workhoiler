@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
-class Authentication extends React.Component {
+class Authentication extends Component {
 
     constructor(props) {
         super(props);

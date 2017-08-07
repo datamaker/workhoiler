@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { Search } from '../components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-class Header extends React.Component {
+class Header extends Component {
 
     constructor(props) {
         super(props);

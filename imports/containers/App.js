@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Header } from '../components';
 import { connect } from 'react-redux';
 import { getStatusRequest, logoutRequest } from '../actions/authentication';
 import { searchRequest } from '../actions/search';
 
-class App extends React.Component {
+class App extends Component {
 
     constructor(props) {
         super(props);
@@ -36,8 +36,8 @@ class App extends React.Component {
     componentDidMount() {
         // get cookie by name
         function getCookie(name) {
-            var value = "; " + document.cookie;
-            var parts = value.split("; " + name + "=");
+            let value = "; " + document.cookie;
+            let parts = value.split("; " + name + "=");
             if (parts.length == 2) return parts.pop().split(";").shift();
         }
 

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Authentication } from '../components';
 import { connect } from 'react-redux';
 import { loginRequest } from '../actions/authentication';
 import { browserHistory } from 'react-router';
 
-class Login extends React.Component {
+class Login extends Component {
 
     constructor(props) {
         super(props);

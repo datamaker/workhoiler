@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Memo } from '../components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-class MemoList extends React.Component {
+class MemoList extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         let update = JSON.stringify(this.props) !== JSON.stringify(nextProps);

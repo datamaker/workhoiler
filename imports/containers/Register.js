@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Authentication } from '../components';
 import { connect } from 'react-redux';
 import { registerRequest } from '../actions/authentication';
 import { browserHistory } from 'react-router';
 
-class Register extends React.Component {
+class Register extends Component {
 
     constructor(props) {
         super(props);

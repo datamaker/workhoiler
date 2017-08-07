@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Write, MemoList } from '../components';
@@ -10,7 +10,7 @@ import {
     memoStarRequest
 } from '../actions/memo';
 
-class Home extends React.Component {
+class Home extends Component {
 
     constructor(props) {
         super(props);

@@ -6,10 +6,7 @@ const initialState = {
     usernames: []
 };
 
-export default function search(state, action) {
-    if(typeof state === "undefined")
-        state = initialState;
-
+export default function search(state = initialState, action) {
     switch(action.type) {
         case types.SEARCH:
             return update(state, {

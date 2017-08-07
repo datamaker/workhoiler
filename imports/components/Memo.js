@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TimeAgo from 'react-timeago';
 import { Link } from 'react-router';
 
-class Memo extends React.Component {
+class Memo extends Component {
 
     constructor(props) {
         super(props);
@@ -93,7 +93,7 @@ class Memo extends React.Component {
     }
 
     render() {
-        var { data, ownership } = this.props;
+        let { data, ownership } = this.props;
 
         const dropDownMenu = (
             <div className="option-button">
