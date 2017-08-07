@@ -26,7 +26,6 @@ export function search() {
 }
 
 export function searchSuccess(usernames) {
-    console.log(usernames);
     return {
         type: SEARCH_SUCCESS,
         usernames

@@ -150,7 +150,6 @@ export function memoRemoveRequest(id, index) {
         .then((response)=> {
             dispatch(memoRemoveSuccess(index));
         }).catch((error) => {
-            console.log(error);
             dispatch(memoRemoveFailure(error.response.data.code));
         });
     };
@@ -185,7 +184,6 @@ export function memoStarRequest(id, index) {
         .then((response) => {
             dispatch(memoStarSuccess(index, response.data.memo));
         }).catch((error) => {
-            console.log(error);
             dispatch(memoStarFailure());
         });
     };
