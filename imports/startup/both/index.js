@@ -6,6 +6,7 @@ import configureStore from './store';
 import React from 'react';
 import ReactHelmet from 'react-helmet';
 import ReactCookie from 'react-cookie';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 // Redux Package
 import { Provider } from 'react-redux';
@@ -64,6 +65,7 @@ const rehydrateHook = state => initialState = state;
 // Create a redux store and pass into the redux Provider wrapper
 const wrapperHook = app => {
     store = configureStore(initialState, history);
+    syncHistoryWithStore(history, store);
     return <Provider store={store}>{app}</Provider>;
 };
 

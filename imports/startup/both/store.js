@@ -10,6 +10,7 @@ const composeEnhancers = composeWithDevTools({
 });
 
 export default function configureStore(initialState, history) {
+    const middleware = routerMiddleware(history);
     return createStore(
         reducers,
         initialState,
@@ -17,7 +18,7 @@ export default function configureStore(initialState, history) {
             composeEnhancers(
                 applyMiddleware(
                     thunk,
-                    routerMiddleware(history)
+                    middleware
                 )
             )
         )
