@@ -14,7 +14,7 @@ export function searchRequest(keyword) {
         .then((response) => {
             dispatch(searchSuccess(response.data));
         }).catch((error) => {
-            dispatch(searchFailure());
+            dispatch(searchFailure(error.response.data.code));
         });
     };
 }
@@ -32,8 +32,9 @@ export function searchSuccess(usernames) {
     };
 }
 
-export function searchFailure() {
+export function searchFailure(error) {
     return {
-        type: SEARCH_FAILURE
+        type: SEARCH_FAILURE,
+        error
     };
 }

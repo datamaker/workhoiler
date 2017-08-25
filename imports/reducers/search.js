@@ -20,7 +20,7 @@ export default function search(state = initialState, action) {
         case types.SEARCH_FAILURE:
             return update(state, {
                 status: { $set: 'FAILURE' },
-                usernames: []
+                error: { $set: action.error }
             });
         default:
             return state;

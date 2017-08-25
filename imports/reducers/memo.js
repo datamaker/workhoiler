@@ -9,7 +9,8 @@ const initialState = {
     list: {
         status: 'INIT',
         data: [],
-        isLast: false
+        isLast: false,
+        error: -1
     },
     edit: {
         status: 'INIT',
@@ -86,7 +87,8 @@ export default function memo(state = initialState, action) {
         case types.MEMO_LIST_FAILURE:
             return update(state, {
                 list: {
-                    status: { $set: 'FAILURE' }
+                    status: { $set: 'FAILURE' },
+                    error: { $set: action.error }
                 }
             });
 

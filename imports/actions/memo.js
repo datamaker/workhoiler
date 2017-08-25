@@ -26,7 +26,7 @@ export function memoPostRequest(contents) {
         .then((response) => {
             dispatch(memoPostSuccess());
         }).catch((error) => {
-            dispatch(memoPostError(error.response.data.code));
+            dispatch(memoPostFailure(error.response.data.code));
         });
     };
 }
@@ -79,7 +79,7 @@ export function memoListRequest(isInitial, listType, id, username) {
         .then((response) => {
             dispatch(memoListSuccess(response.data, isInitial, listType));
         }).catch((error) => {
-            dispatch(memoListFailure());
+            dispatch(memoListFailure(error.response.data.code));
         });
 
     };
@@ -99,9 +99,10 @@ export function memoListSuccess(data, isInitial, listType) {
     };
 }
 
-export function memoListFailure() {
+export function memoListFailure(error) {
     return {
-        type: MEMO_LIST_FAILURE
+        type: MEMO_LIST_FAILURE,
+        error
     };
 }
 
