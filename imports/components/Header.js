@@ -6,76 +6,77 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Header extends Component {
 
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
         // IMPLEMENT: CREATE A SEARCH STATUS
 
-        this.state = {
-            search: false
-        };
+    this.state = {
+      search: false,
+    };
 
-        this.toggleSearch = this.toggleSearch.bind(this);
-    }
+    this.toggleSearch = this.toggleSearch.bind(this);
+  }
 
-    toggleSearch() {
-        this.setState({
-            search: !this.state.search
-        });
-    }
+  toggleSearch() {
+    this.setState({
+      search: !this.state.search,
+    });
+  }
 
-    render() {
-
-        const loginButton = (
-            <li>
-                <Link to="/login"><i className="material-icons">vpn_key</i></Link>
-            </li>
+  render() {
+    const loginButton = (
+      <li>
+        <Link to="/login"><i className="material-icons">vpn_key</i></Link>
+      </li>
         );
 
-        const logoutButton = (
-            <li>
-                <a onClick={this.props.onLogout}><i className="material-icons">lock_open</i></a>
-            </li>
+    const logoutButton = (
+      <li>
+        <a onClick={this.props.onLogout}><i className="material-icons">lock_open</i></a>
+      </li>
         );
 
-        return (
-            <div>
-                <nav>
-                    <div className="nav-wrapper blue darken-1">
-                        <Link to="/" className="brand-logo center">MEMOPAD</Link>
+    return (
+      <div>
+        <nav>
+          <div className="nav-wrapper blue darken-1">
+            <Link to="/" className="brand-logo center">MEMOPAD</Link>
 
-                        <ul>
-                            <li><a onClick={this.toggleSearch}><i className="material-icons">search</i></a></li>
-                        </ul>
+            <ul>
+              <li><a onClick={this.toggleSearch}><i className="material-icons">search</i></a></li>
+            </ul>
 
-                        <div className="right">
-                            <ul>
-                                { this.props.isLoggedIn ? logoutButton : loginButton }
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                    <ReactCSSTransitionGroup transitionName="search" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
-                        { /* IMPLEMENT: SHOW SEARCH WHEN SEARCH STATUS IS TRUE */}
-                        {this.state.search ? <Search onClose={this.toggleSearch}
-                        onSearch={this.props.onSearch}
-                        usernames={this.props.usernames}/> : undefined }
-                    </ReactCSSTransitionGroup>
+            <div className="right">
+              <ul>
+                { this.props.isLoggedIn ? logoutButton : loginButton }
+              </ul>
             </div>
-        );
-    }
+          </div>
+        </nav>
+        <ReactCSSTransitionGroup transitionName="search" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+          { /* IMPLEMENT: SHOW SEARCH WHEN SEARCH STATUS IS TRUE */}
+          {this.state.search ? <Search
+            onClose={this.toggleSearch}
+            onSearch={this.props.onSearch}
+            usernames={this.props.usernames}
+          /> : undefined }
+        </ReactCSSTransitionGroup>
+      </div>
+    );
+  }
 }
 
 Header.propTypes = {
-    isLoggedIn: PropTypes.bool,
-    onLogout: PropTypes.func,
-    usernames: PropTypes.array
+  isLoggedIn: PropTypes.bool,
+  onLogout: PropTypes.func,
+  usernames: PropTypes.array,
 };
 
 Header.defaultProps = {
-    isLoggedIn: false,
-    onLogout: () => { console.error("logout function not defined");},
-    usernames: []
+  isLoggedIn: false,
+  onLogout: () => { console.error('logout function not defined'); },
+  usernames: [],
 };
 
 export default Header;

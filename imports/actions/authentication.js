@@ -8,7 +8,7 @@ import {
     AUTH_GET_STATUS,
     AUTH_GET_STATUS_SUCCESS,
     AUTH_GET_STATUS_FAILURE,
-    AUTH_LOGOUT
+    AUTH_LOGOUT,
 } from './ActionTypes';
 import axios from 'axios';
 
@@ -16,116 +16,114 @@ import axios from 'axios';
 
 /* LOGIN */
 export function loginRequest(username, password) {
-    return (dispatch) => {
-            dispatch(login());
+  return (dispatch) => {
+    dispatch(login());
 
-            return axios.post('/api/account/signin', { username, password })
+    return axios.post('/api/account/signin', { username, password })
             .then((response) => {
-                dispatch(loginSuccess(username));
+              dispatch(loginSuccess(username));
             }).catch((error) => {
-                dispatch(loginFailure());
+              dispatch(loginFailure());
             });
-    };
+  };
 }
 
 export function login() {
-    return {
-        type: AUTH_LOGIN
-    };
+  return {
+    type: AUTH_LOGIN,
+  };
 }
 
 export function loginSuccess(username) {
-    return {
-        type: AUTH_LOGIN_SUCCESS,
-        username
-    };
+  return {
+    type: AUTH_LOGIN_SUCCESS,
+    username,
+  };
 }
 
 export function loginFailure() {
-    return {
-        type: AUTH_LOGIN_FAILURE
-    };
+  return {
+    type: AUTH_LOGIN_FAILURE,
+  };
 }
 
 /* REGISTER */
 export function registerRequest(username, password) {
-    return (dispatch) => {
+  return (dispatch) => {
         // inform register API is starting
-        dispatch(register());
+    dispatch(register());
 
-        return axios.post('/api/account/signup', { username, password })
+    return axios.post('/api/account/signup', { username, password })
         .then((reponse) => {
-            dispatch(registerSuccess());
+          dispatch(registerSuccess());
         }).catch((error) => {
-            dispatch(registerFailure(error.response.data.code));
+          dispatch(registerFailure(error.response.data.code));
         });
-    };
+  };
 }
 
 export function register() {
-    return {
-        type: AUTH_REGISTER
-    };
+  return {
+    type: AUTH_REGISTER,
+  };
 }
 
 export function registerSuccess() {
-    return {
-        type: AUTH_REGISTER_SUCCESS
-    };
+  return {
+    type: AUTH_REGISTER_SUCCESS,
+  };
 }
 
 export function registerFailure(error) {
-    return {
-        type: AUTH_REGISTER_FAILURE,
-        error
-    };
+  return {
+    type: AUTH_REGISTER_FAILURE,
+    error,
+  };
 }
 
 /* GET STATUS */
 export function getStatusRequest() {
-    return (dispatch) => {
-        dispatch(getStatus());
-        return axios.get('/api/account/getinfo')
+  return (dispatch) => {
+    dispatch(getStatus());
+    return axios.get('/api/account/getinfo')
         .then((response) => {
-            dispatch(getStatusSuccess(response.data.info.username));
+          dispatch(getStatusSuccess(response.data.info.username));
         }).catch((error) => {
-            dispatch(getStatusFailure());
+          dispatch(getStatusFailure());
         });
-    };
+  };
 }
 
 export function getStatus() {
-    return {
-        type: AUTH_GET_STATUS
-    };
+  return {
+    type: AUTH_GET_STATUS,
+  };
 }
 
 export function getStatusSuccess(username) {
-    return {
-        type: AUTH_GET_STATUS_SUCCESS,
-        username
-    };
+  return {
+    type: AUTH_GET_STATUS_SUCCESS,
+    username,
+  };
 }
 
 export function getStatusFailure() {
-    return {
-        type: AUTH_GET_STATUS_FAILURE
-    };
+  return {
+    type: AUTH_GET_STATUS_FAILURE,
+  };
 }
 
 
 /* LOGOUT */
 export function logoutRequest() {
-    return (dispatch) => {
-        return axios.post('/api/account/logout')
+  return dispatch => axios.post('/api/account/logout')
         .then((response) => {
-            dispatch(logout());
+          dispatch(logout());
         });
-    };
 }
 
 export function logout() {
-    return {
-        type: AUTH_LOGOUT
-    };
+  return {
+    type: AUTH_LOGOUT,
+  };
 }

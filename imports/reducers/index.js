@@ -5,5 +5,5 @@ import memo from './memo';
 import search from './search';
 
 export default combineReducers({
-    authentication, memo, search, routing: routerReducer
+  authentication, memo, search, routing: routerReducer,
 });

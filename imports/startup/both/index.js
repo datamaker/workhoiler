@@ -20,37 +20,37 @@ let store;
 let initialState;
 
 const props = {
-    onUpdate() {
+  onUpdate() {
         // Notify the page has been changed to Google Analytics
-        //ga('send', 'pageview');
-    }
+        // ga('send', 'pageview');
+  },
 };
 
 // Create a react-helmat
 const htmlHook = (html) => {
-    const head = ReactHelmet.rewind();
-    return html.replace('<head>', '<head>' + head.title + head.base + head.meta + head.link + head.script + head.noscript);
+  const head = ReactHelmet.rewind();
+  return html.replace('<head>', `<head>${head.title}${head.base}${head.meta}${head.link}${head.script}${head.noscript}`);
 };
 
 // Create a react-cookie
 const preRender = (req, res) => {
-    initialState = {
-        authentication : {
-            login : {
-                status : 'INIT'
-            },
-            register : {
-                status : 'INIT',
-                error : -1
-            },
-            status : {
-                valid : false,
-                isLoggedIn : !!Meteor.userId(),
-                currentUser : Meteor.user() ? Meteor.user() : ''
-            }
-        }
-    };
-    return ReactCookie.plugToRequest( req, res );
+  initialState = {
+    authentication: {
+      login: {
+        status: 'INIT',
+      },
+      register: {
+        status: 'INIT',
+        error: -1,
+      },
+      status: {
+        valid: false,
+        isLoggedIn: !!Meteor.userId(),
+        currentUser: Meteor.user() ? Meteor.user() : '',
+      },
+    },
+  };
+  return ReactCookie.plugToRequest(req, res);
 };
 
 // Use history hook to get a reference to the history object
@@ -63,13 +63,13 @@ const dehydrateHook = () => store.getState();
 const rehydrateHook = state => initialState = state;
 
 // Create a redux store and pass into the redux Provider wrapper
-const wrapperHook = app => {
-    store = configureStore(initialState, history);
-    syncHistoryWithStore(history, store);
-    return <Provider store={store}>{app}</Provider>;
+const wrapperHook = (app) => {
+  store = configureStore(initialState, history);
+  syncHistoryWithStore(history, store);
+  return <Provider store={store}>{app}</Provider>;
 };
 
-const clientOptions = {rootElement, props, historyHook, rehydrateHook, wrapperHook};
-const serverOptions = {htmlHook, preRender, historyHook, dehydrateHook};
+const clientOptions = { rootElement, props, historyHook, rehydrateHook, wrapperHook };
+const serverOptions = { htmlHook, preRender, historyHook, dehydrateHook };
 
 ReactRouterSSR.Run(routes, clientOptions, serverOptions);

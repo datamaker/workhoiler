@@ -1,40 +1,39 @@
 import {
     SEARCH,
     SEARCH_SUCCESS,
-    SEARCH_FAILURE
+    SEARCH_FAILURE,
 } from './ActionTypes';
 import axios from 'axios';
 
 export function searchRequest(keyword) {
-    return (dispatch) => {
+  return (dispatch) => {
+    dispatch(search());
 
-        dispatch(search());
-
-        return axios.get('/api/account/search/' + keyword)
+    return axios.get(`/api/account/search/${keyword}`)
         .then((response) => {
-            dispatch(searchSuccess(response.data));
+          dispatch(searchSuccess(response.data));
         }).catch((error) => {
-            dispatch(searchFailure(error.response.data.code));
+          dispatch(searchFailure(error.response.data.code));
         });
-    };
+  };
 }
 
 export function search() {
-    return {
-        type: SEARCH
-    };
+  return {
+    type: SEARCH,
+  };
 }
 
 export function searchSuccess(usernames) {
-    return {
-        type: SEARCH_SUCCESS,
-        usernames
-    };
+  return {
+    type: SEARCH_SUCCESS,
+    usernames,
+  };
 }
 
 export function searchFailure(error) {
-    return {
-        type: SEARCH_FAILURE,
-        error
-    };
+  return {
+    type: SEARCH_FAILURE,
+    error,
+  };
 }

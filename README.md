@@ -8,19 +8,22 @@ Memo Creation / Manipulation (edit, delete, star)
 User Search
 
 ### Includes
+- Meteor v1.6
 - GraphQL server running with Express bound to the Meteor app
 - Apollo client
-- React
+- React v16
 - React-helmet
 - React-router v3
 - React-router-ssr
 - React-router-redux
 - React-addons-css-transition-group
-- React-addons-update
 - Redux
 - Redux-thunk
+- Immutability-helper
 - Accounts UI, Basic & password
-- ES6 syntax
+- ES6 Syntax
+- ESLint
+- ESLint-config-airbnb
 - SCSS
 
 Check `package.json` for specific versions
