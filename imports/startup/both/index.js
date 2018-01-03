@@ -21,8 +21,8 @@ let initialState;
 
 const props = {
   onUpdate() {
-        // Notify the page has been changed to Google Analytics
-        // ga('send', 'pageview');
+    // Notify the page has been changed to Google Analytics
+    // ga('send', 'pageview');
   },
 };
 

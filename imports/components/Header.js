@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { Link } from 'react-router';
 import { Search } from '../components';
 
@@ -54,14 +54,14 @@ class Header extends Component {
             </div>
           </div>
         </nav>
-        <ReactCSSTransitionGroup transitionName="search" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+        <CSSTransitionGroup transitionName="search" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
           { /* IMPLEMENT: SHOW SEARCH WHEN SEARCH STATUS IS TRUE */}
           {this.state.search ? <Search
             onClose={this.toggleSearch}
             onSearch={this.props.onSearch}
             usernames={this.props.usernames}
           /> : undefined }
-        </ReactCSSTransitionGroup>
+        </CSSTransitionGroup>
       </div>
     );
   }

@@ -318,7 +318,7 @@ class Home extends Component {
   }
 }
 
-Home.PropTypes = {
+Home.propTypes = {
   username: PropTypes.string,
 };
 
