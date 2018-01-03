@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import { Header } from '../components';
 import { connect } from 'react-redux';
+import { Header } from '../components';
 import { getStatusRequest, logoutRequest } from '../actions/authentication';
 import { searchRequest } from '../actions/search';
 

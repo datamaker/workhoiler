@@ -1,7 +1,3 @@
-// Routes
-import routes from './routes';
-import configureStore from './store';
-
 // React Package
 import React from 'react';
 import ReactHelmet from 'react-helmet';
@@ -10,6 +6,10 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 // Redux Package
 import { Provider } from 'react-redux';
+
+// Routes
+import routes from './routes';
+import configureStore from './store';
 
 // clientOptions
 const rootElement = 'root';

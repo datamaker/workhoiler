@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
     AUTH_LOGIN,
     AUTH_LOGIN_SUCCESS,
@@ -10,7 +11,6 @@ import {
     AUTH_GET_STATUS_FAILURE,
     AUTH_LOGOUT,
 } from './ActionTypes';
-import axios from 'axios';
 
 /* ====== AUTH ====== */
 

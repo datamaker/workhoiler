@@ -1,5 +1,5 @@
-import * as types from '../actions/ActionTypes';
 import update from 'immutability-helper';
+import * as types from '../actions/ActionTypes';
 
 const initialState = {
   post: {

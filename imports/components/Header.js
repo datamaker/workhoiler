@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Link } from 'react-router';
 import { Search } from '../components';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Header extends Component {
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Authentication } from '../components';
 import { connect } from 'react-redux';
-import { registerRequest } from '../actions/authentication';
 import { browserHistory } from 'react-router';
+import { Authentication } from '../components';
+import { registerRequest } from '../actions/authentication';
 
 class Register extends Component {
 

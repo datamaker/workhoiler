@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Memo } from '../components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { Memo } from '../components';
 
 class MemoList extends Component {
 

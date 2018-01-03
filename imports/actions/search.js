@@ -1,9 +1,9 @@
+import axios from 'axios';
 import {
     SEARCH,
     SEARCH_SUCCESS,
     SEARCH_FAILURE,
 } from './ActionTypes';
-import axios from 'axios';
 
 export function searchRequest(keyword) {
   return (dispatch) => {

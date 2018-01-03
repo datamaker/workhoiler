@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
     MEMO_POST,
     MEMO_POST_SUCCESS,
@@ -15,7 +16,6 @@ import {
     MEMO_STAR_SUCCESS,
     MEMO_STAR_FAILURE,
 } from './ActionTypes';
-import axios from 'axios';
 
 /* MEMO POST */
 export function memoPostRequest(contents) {
